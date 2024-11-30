@@ -15,6 +15,5 @@ export default defineConfig({
       }
     }
   },
-  // Ensure proper base path for Vercel
-  base: '/'
+  base: './', // ใช้ relative path
 })
