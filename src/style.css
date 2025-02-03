@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+  font-family: 'Noto Sans Thai', 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
   background-color: #f0f2f5;
+}
+
+.ant-form-item-label > label {
+  font-family: 'Noto Sans Thai', sans-serif !important;
 }

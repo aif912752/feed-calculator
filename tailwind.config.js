@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Noto Sans Thai', 'system-ui', 'sans-serif'],
+      },
       colors: {
         'primary': '#1890ff',
         'secondary': '#52c41a',
