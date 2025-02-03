@@ -10,3 +10,11 @@ body {
 .ant-form-item-label > label {
   font-family: 'Noto Sans Thai', sans-serif !important;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
