@@ -352,6 +352,8 @@
         title="สูตรการคำนวณ"
         @ok="formulasVisible = false"
         width="600px"
+        centered
+        
       >
         <div class="space-y-6">
           <div class="bg-blue-50 p-4 rounded-lg">
