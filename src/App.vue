@@ -353,6 +353,7 @@
         @ok="formulasVisible = false"
         width="600px"
         centered
+        :footer="null"
         
       >
         <div class="space-y-6">
