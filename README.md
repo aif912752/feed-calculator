@@ -1,5 +1,14 @@
-# Vue 3 + Vite
+# เครื่องคำนวณการเลี้ยงสัตว์
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+โปรเจ็คนี้เป็นแอปพลิเคชันเครื่องคำนวณการเลี้ยงสัตว์ที่สร้างด้วย Vue 3 และ Vite ช่วยให้ผู้ใช้คำนวณอัตราการเปลี่ยนอาหาร (FCR), การเพิ่มน้ำหนักเฉลี่ยต่อวัน (ADG), และการบริโภคอาหาร (FI) สำหรับปศุสัตว์
 
-Learn more about IDE Support for Vue in the [Vue Docs Scaling up Guide](https://vuejs.org/guide/scaling-up/tooling.html#ide-support).
+## คุณสมบัติ
+
+- คำนวณอัตราการเปลี่ยนอาหาร (FCR)
+- คำนวณการเพิ่มน้ำหนักเฉลี่ยต่อวัน (ADG)
+- คำนวณการบริโภคอาหาร (FI)
+- ดูประวัติการคำนวณ
+- รีเซ็ตฟอร์มและประวัติ
+- แสดงสูตรการคำนวณ
+
+## โครงสร้างโปรเจ็ค
