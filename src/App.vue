@@ -48,35 +48,37 @@
               stroke-linejoin="round"
               class="mr-2"
             >
-              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+              <path
+                d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"
+              />
             </svg>
             สูตรการคำนวณ
           </a-button>
-        <a-button
-          type="default"
-          @click="resetAll"
-          class="bg-red-50 hover:bg-red-100 text-red-600 rounded-full flex items-center"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="mr-2"
+          <a-button
+            type="default"
+            @click="resetAll"
+            class="bg-red-50 hover:bg-red-100 text-red-600 rounded-full flex items-center"
           >
-            <path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-9 9Z" />
-            <path d="m8 12 4-4 4 4" />
-            <path d="m12 16V8" />
-          </svg>
-          รีเซ็ตทั้งหมด
-        </a-button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mr-2"
+            >
+              <path d="M3 12a9 9 0 1 0 9-9 9 9 0 0 0-9 9Z" />
+              <path d="m8 12 4-4 4 4" />
+              <path d="m12 16V8" />
+            </svg>
+            รีเซ็ตทั้งหมด
+          </a-button>
+        </div>
       </div>
-    </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
@@ -239,13 +241,26 @@
         <div class="bg-gray-100 p-4 rounded-lg">
           <div class="flex justify-between items-center mb-4">
             <h2 class="text-xl font-semibold text-blue-700 flex items-center">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mr-2">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="mr-2"
+              >
                 <path d="M12 20v-6M6 20V10M18 20V4" />
               </svg>
               ประวัติการคำนวณ
-              <span class="ml-2 text-sm text-gray-600">({{ calculationHistory.length }} รายการ)</span>
+              <span class="ml-2 text-sm text-gray-600"
+                >({{ calculationHistory.length }} รายการ)</span
+              >
             </h2>
-            
+
             <a-button
               v-if="calculationHistory.length > 0"
               type="text"
@@ -278,7 +293,7 @@
             <div
               v-for="(record, index) in calculationHistory"
               :key="index"
-              class="bg-white p-4 rounded-lg shadow-sm "
+              class="bg-white p-4 rounded-lg shadow-sm"
             >
               <div class="flex justify-between items-start mb-2">
                 <span class="text-sm text-gray-500">{{ record.date }}</span>
@@ -348,58 +363,57 @@
   </div>
 
   <a-modal
-        v-model:visible="formulasVisible"
-        title="สูตรการคำนวณ"
-        @ok="formulasVisible = false"
-        width="600px"
-        centered
-        :footer="null"
-        
-      >
-        <div class="space-y-6">
-          <div class="bg-blue-50 p-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-blue-700 mb-2">
-              อัตราการแปลงอาหาร (Feed Conversion Ratio - FCR)
-            </h3>
-            <p class="text-gray-700 mb-2">
-              FCR คือ อัตราส่วนระหว่างปริมาณอาหารที่กินต่อน้ำหนักตัวที่เพิ่มขึ้น
-            </p>
-            <div class="bg-white p-3 rounded border border-blue-200">
-              <code class="text-blue-600">
-                FCR = ปริมาณอาหารทั้งหมด ÷ (น้ำหนักสุดท้าย - น้ำหนักเริ่มต้น)
-              </code>
-            </div>
-          </div>
-
-          <div class="bg-green-50 p-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-green-700 mb-2">
-              อัตราการเจริญเติบโตต่อวัน (Average Daily Gain - ADG)
-            </h3>
-            <p class="text-gray-700 mb-2">
-              ADG คือ ค่าเฉลี่ยของน้ำหนักที่เพิ่มขึ้นต่อวัน
-            </p>
-            <div class="bg-white p-3 rounded border border-green-200">
-              <code class="text-green-600">
-                ADG = (น้ำหนักสุดท้าย - น้ำหนักเริ่มต้น) ÷ จำนวนวันที่เลี้ยง
-              </code>
-            </div>
-          </div>
-
-          <div class="bg-purple-50 p-4 rounded-lg">
-            <h3 class="text-lg font-semibold text-purple-700 mb-2">
-              ปริมาณอาหารที่กินต่อวัน (Feed Intake - FI)
-            </h3>
-            <p class="text-gray-700 mb-2">
-              FI คือ ปริมาณอาหารเฉลี่ยที่สัตว์กินต่อวัน
-            </p>
-            <div class="bg-white p-3 rounded border border-purple-200">
-              <code class="text-purple-600">
-                FI = ปริมาณอาหารทั้งหมด ÷ จำนวนวันที่เลี้ยง
-              </code>
-            </div>
-          </div>
+    v-model:visible="formulasVisible"
+    title="สูตรการคำนวณ"
+    @ok="formulasVisible = false"
+    width="600px"
+    centered
+    :footer="null"
+  >
+    <div class="space-y-6">
+      <div class="bg-blue-50 p-4 rounded-lg">
+        <h3 class="text-lg font-semibold text-blue-700 mb-2">
+          อัตราการแปลงอาหาร (Feed Conversion Ratio - FCR)
+        </h3>
+        <p class="text-gray-700 mb-2">
+          FCR คือ อัตราส่วนระหว่างปริมาณอาหารที่กินต่อน้ำหนักตัวที่เพิ่มขึ้น
+        </p>
+        <div class="bg-white p-3 rounded border border-blue-200">
+          <code class="text-blue-600">
+            FCR = ปริมาณอาหารทั้งหมด ÷ (น้ำหนักสุดท้าย - น้ำหนักเริ่มต้น)
+          </code>
         </div>
-      </a-modal>
+      </div>
+
+      <div class="bg-green-50 p-4 rounded-lg">
+        <h3 class="text-lg font-semibold text-green-700 mb-2">
+          อัตราการเจริญเติบโตต่อวัน (Average Daily Gain - ADG)
+        </h3>
+        <p class="text-gray-700 mb-2">
+          ADG คือ ค่าเฉลี่ยของน้ำหนักที่เพิ่มขึ้นต่อวัน
+        </p>
+        <div class="bg-white p-3 rounded border border-green-200">
+          <code class="text-green-600">
+            ADG = (น้ำหนักสุดท้าย - น้ำหนักเริ่มต้น) ÷ จำนวนวันที่เลี้ยง
+          </code>
+        </div>
+      </div>
+
+      <div class="bg-purple-50 p-4 rounded-lg">
+        <h3 class="text-lg font-semibold text-purple-700 mb-2">
+          ปริมาณอาหารที่กินต่อวัน (Feed Intake - FI)
+        </h3>
+        <p class="text-gray-700 mb-2">
+          FI คือ ปริมาณอาหารเฉลี่ยที่สัตว์กินต่อวัน
+        </p>
+        <div class="bg-white p-3 rounded border border-purple-200">
+          <code class="text-purple-600">
+            FI = ปริมาณอาหารทั้งหมด ÷ จำนวนวันที่เลี้ยง
+          </code>
+        </div>
+      </div>
+    </div>
+  </a-modal>
 </template>
 
 <script setup>
