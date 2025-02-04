@@ -159,7 +159,7 @@ const resetForm = () => {
     days: null,
     notes: '',
   };
-  unit.value = 'kg';
+  unit.value = 'g';
   emit('reset');
 };
 
