@@ -30,6 +30,28 @@
             เครื่องคำนวณการเลี้ยงสัตว์
           </h1>
         </div>
+        <div class="flex space-x-3">
+          <a-button
+            type="primary"
+            @click="showFormulas"
+            class="bg-green-500 hover:bg-green-600 text-white rounded-full flex items-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mr-2"
+            >
+              <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
+            </svg>
+            สูตรการคำนวณ
+          </a-button>
         <a-button
           type="default"
           @click="resetAll"
@@ -54,6 +76,7 @@
           รีเซ็ตทั้งหมด
         </a-button>
       </div>
+    </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
         <div>
@@ -323,12 +346,64 @@
       </div>
     </div>
   </div>
+
+  <a-modal
+        v-model:visible="formulasVisible"
+        title="สูตรการคำนวณ"
+        @ok="formulasVisible = false"
+        width="600px"
+      >
+        <div class="space-y-6">
+          <div class="bg-blue-50 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold text-blue-700 mb-2">
+              อัตราการแปลงอาหาร (Feed Conversion Ratio - FCR)
+            </h3>
+            <p class="text-gray-700 mb-2">
+              FCR คือ อัตราส่วนระหว่างปริมาณอาหารที่กินต่อน้ำหนักตัวที่เพิ่มขึ้น
+            </p>
+            <div class="bg-white p-3 rounded border border-blue-200">
+              <code class="text-blue-600">
+                FCR = ปริมาณอาหารทั้งหมด ÷ (น้ำหนักสุดท้าย - น้ำหนักเริ่มต้น)
+              </code>
+            </div>
+          </div>
+
+          <div class="bg-green-50 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold text-green-700 mb-2">
+              อัตราการเจริญเติบโตต่อวัน (Average Daily Gain - ADG)
+            </h3>
+            <p class="text-gray-700 mb-2">
+              ADG คือ ค่าเฉลี่ยของน้ำหนักที่เพิ่มขึ้นต่อวัน
+            </p>
+            <div class="bg-white p-3 rounded border border-green-200">
+              <code class="text-green-600">
+                ADG = (น้ำหนักสุดท้าย - น้ำหนักเริ่มต้น) ÷ จำนวนวันที่เลี้ยง
+              </code>
+            </div>
+          </div>
+
+          <div class="bg-purple-50 p-4 rounded-lg">
+            <h3 class="text-lg font-semibold text-purple-700 mb-2">
+              ปริมาณอาหารที่กินต่อวัน (Feed Intake - FI)
+            </h3>
+            <p class="text-gray-700 mb-2">
+              FI คือ ปริมาณอาหารเฉลี่ยที่สัตว์กินต่อวัน
+            </p>
+            <div class="bg-white p-3 rounded border border-purple-200">
+              <code class="text-purple-600">
+                FI = ปริมาณอาหารทั้งหมด ÷ จำนวนวันที่เลี้ยง
+              </code>
+            </div>
+          </div>
+        </div>
+      </a-modal>
 </template>
 
 <script setup>
 import { ref, onMounted } from "vue";
 import { message } from "ant-design-vue";
 
+const formulasVisible = ref(false);
 const formData = ref({
   initialWeight: null,
   finalWeight: null,
@@ -348,6 +423,9 @@ onMounted(() => {
   }
 });
 
+const showFormulas = () => {
+  formulasVisible.value = true;
+};
 // Save data to localStorage
 const saveHistory = () => {
   localStorage.setItem(
