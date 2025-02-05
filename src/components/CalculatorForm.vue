@@ -9,7 +9,6 @@
       <a-form-item
         :label="'น้ำหนักเริ่มต้น (' + (unit === 'kg' ? 'กก.' : 'ก.') + ')'"
         name="initialWeight"
-        :rules="[{ required: true, message: 'กรุณาระบุน้ำหนักเริ่มต้น' }]"
       >
         <a-input-number
           v-model:value="formData.initialWeight"
@@ -22,7 +21,6 @@
       <a-form-item
         :label="'น้ำหนักสุดท้าย (' + (unit === 'kg' ? 'กก.' : 'ก.') + ')'"
         name="finalWeight"
-        :rules="[{ required: true, message: 'กรุณาระบุน้ำหนักสุดท้าย' }]"
       >
         <a-input-number
           v-model:value="formData.finalWeight"
@@ -36,7 +34,6 @@
       <a-form-item
         :label="'ปริมาณอาหารทั้งหมด (' + (unit === 'kg' ? 'กก.' : 'ก.') + ')'"
         name="totalFeed"
-        :rules="[{ required: true, message: 'กรุณาระบุปริมาณอาหาร' }]"
       >
         <a-input-number
           v-model:value="formData.totalFeed"
@@ -50,7 +47,6 @@
     <a-form-item
       label="จำนวนวันที่เลี้ยง"
       name="days"
-      :rules="[{ required: true, message: 'กรุณาระบุจำนวนวัน' }]"
     >
       <a-input-number
         v-model:value="formData.days"
@@ -137,15 +133,8 @@ const formData = ref({
 const onSubmit = () => {
   const { initialWeight, finalWeight, totalFeed, days, notes } = formData.value;
 
-  if (!initialWeight || !finalWeight || !totalFeed || !days) {
-    message.error('กรุณากรอกข้อมูลให้ครบทุกช่อง');
-    return;
-  }
 
-  if (finalWeight <= initialWeight) {
-    message.error('น้ำหนักสุดท้ายต้องมากกว่าน้ำหนักเริ่มต้น');
-    return;
-  }
+
 
   emit('calculate', { ...formData.value, unit: unit.value });
 };
