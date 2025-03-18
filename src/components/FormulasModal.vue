@@ -1,12 +1,12 @@
 <template>
-    <a-modal
-      :visible="visible"
-      title="สูตรการคำนวณ"
-      @cancel="closeModal"
-      width="600px"
-      centered
-      :footer="null"
-    >
+<a-modal
+  :open="visible"
+  title="สูตรการคำนวณ"
+  @cancel="closeModal"
+  width="600px"
+  centered
+  :footer="null"
+>
     <div class="space-y-6">
       <div class="bg-blue-50 p-4 rounded-lg">
         <h3 class="text-lg font-semibold text-blue-700 mb-2">

@@ -45,7 +45,7 @@
       </a-button>
     </div>
 
-    <div v-if="history.length > 0" class="space-y-4 max-h-[500px] overflow-y-auto">
+    <div v-if="history.length > 0" class="space-y-4 max-h-[450px] overflow-y-auto">
       <div
         v-for="(record, index) in history"
         :key="index"

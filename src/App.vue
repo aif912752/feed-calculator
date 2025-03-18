@@ -3,8 +3,7 @@
     class="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center p-4"
   >
     <div
-      class="w-full max-w-5xl bg-white rounded-3xl shadow-2xl border border-blue-100 p-6 md:p-8"
-    >
+    class="w-full max-w-5xl bg-white rounded-3xl shadow-2xl border border-blue-100 p-6 md:p-8 h-[90vh] "    >
       <div class="flex flex-col md:flex-row items-center justify-between mb-6">
         <div class="flex items-center mb-4 md:mb-0">
           <svg
