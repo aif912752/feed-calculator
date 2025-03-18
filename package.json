@@ -1,14 +1,16 @@
 {
   "name": "feed-calculator",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "vercel-build": "vite build"
-
+    "vercel-build": "vite build",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "jest --coverage --config=jest.config.js"
   },
   "dependencies": {
     "@ant-design/icons-vue": "^7.0.1",
@@ -21,6 +23,14 @@
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.2.1",
-    "vite": "^6.0.1"
+    "vite": "^6.0.1",
+    "vitest": "^0.34.1",
+    "jsdom": "^20.0.0",
+    "@testing-library/jest-dom": "^5.16.5",
+    "jest": "^29.0.0",
+    "babel-jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.0.0",
+    "@vue/vue3-jest": "^29.0.0",
+    "@babel/preset-env": "^7.0.0"
   }
 }
